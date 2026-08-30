@@ -142,3 +142,63 @@
     color: var(--color-foreground);
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * Administration console primitives
+ * ------------------------------------------------------------------------ */
+
+@layer components {
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-md);
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    padding: 0.5rem 0.875rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: opacity 0.15s ease;
+  }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-card);
+    color: var(--color-foreground);
+    padding: 0.5rem 0.875rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  .btn-secondary:hover { background-color: var(--color-muted); }
+  .btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .field {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-input);
+    background-color: var(--color-card);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-foreground);
+  }
+  .field:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 1px;
+  }
+}
+
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  @page { margin: 14mm; }
+}
